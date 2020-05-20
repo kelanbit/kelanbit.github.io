@@ -1,9 +1,6 @@
-const otop = document.getElementById('otop')
-const gvs = document.getElementById('gvs')
-const odpuo = document.getElementById('odpuo')
-const odpup = document.getElementById('odpup')
-
-const opl = document.getElementById('opl')
+function clean() {
+    results.hidden = true
+}
 
 function calc() {
     let sum = Number(otop.value) + Number(gvs.value) + Number(odpuo.value) + Number(odpup.value)
@@ -15,14 +12,47 @@ function calc() {
 
     let result_sum = Number(str_res_otop) + Number(str_res_gvs) + Number(str_res_odpuo) + Number(str_res_odpup)
 
-    alert('отопление: ' + str_res_otop
-        + ' руб., гвс: ' + str_res_gvs
-        + 'руб., ОДПУ: ' + str_res_odpuo
-        + 'руб., ОДПУ%: ' + str_res_odpup + 'руб.')
-    
 
-    let delta = (opl.value - result_sum).toFixed(2)
+    // let delta = (opl.value - result_sum).toFixed(2)
 
-    alert('Погрешность: ' + delta);
+    // alert('Погрешность: ' + delta);
+
+
+    results.hidden = false
+    if (Number(str_res_otop > 0)) {
+
+        otop_area.hidden = false
+        otop_result.innerText = str_res_otop + ' руб.'
+    }
+    else {
+        otop_area.hidden = true
+    }
+
+    if (Number(str_res_gvs > 0)) {
+
+        gvs_area.hidden = false
+        gvs_result.innerText = str_res_gvs + ' руб.'
+    }
+    else {
+        gvs_area.hidden = true
+    }
+
+    if (Number(str_res_odpuo > 0)) {
+
+        odpuo_area.hidden = false
+        odpuo_result.innerText = str_res_odpuo + ' руб.'
+    }
+    else {
+        odpuo_area.hidden = true
+    }
+
+    if (Number(str_res_odpup > 0)) {
+
+        odpup_area.hidden = false
+        odpup_result.innerText = str_res_odpup + ' руб.'
+    }
+    else {
+        odpup_area.hidden = true
+    }
 
 }

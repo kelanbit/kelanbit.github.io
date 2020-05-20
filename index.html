@@ -10,70 +10,101 @@
 
 <body>
     <div class="container">
-        <h1 class="display-4">Калькулятор оплат</h1>
+        <h1 class="display-4 my-4">Калькулятор оплат</h1>
 
-        <form onsubmit="calc();return false">
-            <div class="d-flex justify-content-between">
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге Отопление"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2" id="otop" min="0" step="0.01"
-                        required>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">руб.</span>
+        <form onsubmit="calc();return false" onreset="clean()">
+
+            <div class="alert alert-dark">
+                <div class="d-flex justify-content-between">
+                    <div class="input-group mb-3 mr-2">
+                        <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге Отопление"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="otop" min="0"
+                            step="0.01" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">руб.</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3 ml-2">
+                        <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге ГВС"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="gvs" min="0"
+                            step="0.01" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">руб.</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге ГВС"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2" id="gvs" min="0" step="0.01"
-                        required>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">руб.</span>
+                <div class="d-flex justify-content-between">
+                    <div class="input-group mb-3 mr-2">
+                        <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге ОДПУ осн"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="odpuo" min="0"
+                            step="0.01" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">руб.</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3 ml-2">
+                        <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге ОДПУ %"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="odpup" min="0"
+                            step="0.01" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">руб.</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге ОДПУ осн"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2" id="odpuo" min="0" step="0.01"
-                        required>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">руб.</span>
-                    </div>
-                </div>
-
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Остаток ДЗ по услуге ОДПУ %"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2" id="odpup" min="0" step="0.01"
-                        required>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">руб.</span>
+                <div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Сумма поступившей оплаты"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="opl" min="0"
+                            step="0.01" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">руб.</span>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-            <div>
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Сумма поступившей оплаты"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2" id="opl" min="0" step="0.01"
-                        required>
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">руб.</span>
-                    </div>
-                </div>
-            </div>
-
 
 
             <div class="d-flex">
-                <input type="submit" class="btn btn-success btn-lg" name="apply" value="Расчитать" />
+                <input type="submit" class="btn btn-success btn-lg" name="apply" value="Рассчитать" />
                 <input type="reset" class="btn btn-danger btn-lg ml-auto" name="cancel" value="Очистить"></button>
             </div>
         </form>
+
+        <div id="results" hidden>
+
+            <h3 class="text-center">Результат</h3>
+
+            <div class="alert alert-dark" id="otop_area" hidden>
+                <h5 class="alert-heading">Отопление</h5>
+                <p id="otop_result"></p>
+                <button class="btn btn-secondary">Скопировать значение</button>
+            </div>
+
+            <div class="alert alert-dark" id="gvs_area" hidden>
+                <h5 class="alert-heading">ГВС</h5>
+                <p id="gvs_result"></p>
+                <button class="btn btn-secondary">Скопировать значение</button>
+            </div>
+
+            <div class="alert alert-dark" id="odpuo_area" hidden>
+                <h5 class="alert-heading">ОДПУ осн</h5>
+                <p id="odpuo_result"></p>
+                <button class="btn btn-secondary">Скопировать значение</button>
+            </div>
+
+            <div class="alert alert-dark" id="odpup_area" hidden>
+                <h5 class="alert-heading">ОДПУ %</h5>
+                <p id="odpup_result"></p>
+                <button class="btn btn-secondary">Скопировать значение</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
-
 
 </body>
 
