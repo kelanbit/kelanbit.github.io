@@ -1,8 +1,33 @@
+const otop = document.getElementById('otop')
+const gvs = document.getElementById('gvs')
+const odpuo = document.getElementById('odpuo')
+const odpup = document.getElementById('odpup')
+const opl = document.getElementById('opl')
+
+const otop_area = document.getElementById('otop_area')
+const gvs_area = document.getElementById('gvs_area')
+const odpuo_area = document.getElementById('odpuo_area')
+const odpup_area = document.getElementById('odpup_area')
+
+const otop_result = document.getElementById('otop_result')
+const gvs_result = document.getElementById('gvs_result')
+const odpuo_result = document.getElementById('odpuo_result')
+const odpup_result = document.getElementById('odpup_result')
+
+const otop_value = document.getElementById('otop_value')
+const gvs_value = document.getElementById('gvs_value')
+const odpuo_value = document.getElementById('odpuo_value')
+const odpup_value = document.getElementById('odpup_value')
+
+const results = document.getElementById('results')
+
+
 function clean() {
     results.hidden = true
 }
 
 function calc() {
+    debugger;
     let sum = Number(otop.value) + Number(gvs.value) + Number(odpuo.value) + Number(odpup.value)
 
     let str_res_otop = (opl.value * (otop.value / sum)).toFixed(2)
@@ -23,6 +48,7 @@ function calc() {
 
         otop_area.hidden = false
         otop_result.innerText = Number(str_res_otop).toLocaleString() + ' руб.'
+        otop_value.innerText=str_res_otop
     }
     else {
         otop_area.hidden = true
@@ -32,6 +58,7 @@ function calc() {
 
         gvs_area.hidden = false
         gvs_result.innerText = Number(str_res_gvs).toLocaleString() + ' руб.'
+        gvs_value.innerText=str_res_gvs
     }
     else {
         gvs_area.hidden = true
@@ -41,6 +68,7 @@ function calc() {
 
         odpuo_area.hidden = false
         odpuo_result.innerText = Number(str_res_odpuo).toLocaleString() + ' руб.'
+        odpuo_value.innerText=str_res_odpuo
     }
     else {
         odpuo_area.hidden = true
@@ -50,6 +78,7 @@ function calc() {
 
         odpup_area.hidden = false
         odpup_result.innerText = Number(str_res_odpup).toLocaleString() + ' руб.'
+        odpup_value.innerText=str_res_odpup
     }
     else {
         odpup_area.hidden = true
@@ -58,7 +87,7 @@ function calc() {
 
 function copyFromId(id) {
     const el = document.getElementById(id);
-    let value = (el.innerText).replace(' руб.','').replace(' ','')
+    let value = (el.innerText).replace('.',',');
 
     copyToClipboard(value);
 }
