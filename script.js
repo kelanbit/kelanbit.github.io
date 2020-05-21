@@ -27,7 +27,6 @@ function clean() {
 }
 
 function calc() {
-    debugger;
     let sum = Number(otop.value) + Number(gvs.value) + Number(odpuo.value) + Number(odpup.value)
 
     let str_res_otop = (opl.value * (otop.value / sum)).toFixed(2)
@@ -40,25 +39,28 @@ function calc() {
 
     // let delta = (opl.value - result_sum).toFixed(2)
 
-    // alert('Погрешность: ' + delta);
+    // alert('Погрешность: ' + delta);    
 
-
+    
     results.hidden = false
+ 
     if (Number(str_res_otop > 0)) {
 
         otop_area.hidden = false
-        otop_result.innerText = Number(str_res_otop).toLocaleString() + ' руб.'
-        otop_value.innerText=str_res_otop
+        let temp = parseFloat(str_res_otop).toLocaleString(undefined, { minimumFractionDigits: 2 }) + ' руб.'
+        otop_result.innerText = temp
+        otop_value.innerText = str_res_otop
     }
     else {
         otop_area.hidden = true
     }
-
+ 
     if (Number(str_res_gvs > 0)) {
 
         gvs_area.hidden = false
-        gvs_result.innerText = Number(str_res_gvs).toLocaleString() + ' руб.'
-        gvs_value.innerText=str_res_gvs
+        let temp = parseFloat(str_res_gvs).toLocaleString(undefined, { minimumFractionDigits: 2 }) + ' руб.'
+        gvs_result.innerText = temp
+        gvs_value.innerText = str_res_gvs
     }
     else {
         gvs_area.hidden = true
@@ -67,8 +69,9 @@ function calc() {
     if (Number(str_res_odpuo > 0)) {
 
         odpuo_area.hidden = false
-        odpuo_result.innerText = Number(str_res_odpuo).toLocaleString() + ' руб.'
-        odpuo_value.innerText=str_res_odpuo
+        let temp = parseFloat(str_res_odpuo).toLocaleString(undefined, { minimumFractionDigits: 2 }) + ' руб.'
+        odpuo_result.innerText = temp
+        odpuo_value.innerText = str_res_odpuo
     }
     else {
         odpuo_area.hidden = true
@@ -77,8 +80,9 @@ function calc() {
     if (Number(str_res_odpup > 0)) {
 
         odpup_area.hidden = false
-        odpup_result.innerText = Number(str_res_odpup).toLocaleString() + ' руб.'
-        odpup_value.innerText=str_res_odpup
+        let temp = parseFloat(str_res_odpup).toLocaleString(undefined, { minimumFractionDigits: 2 }) + ' руб.'
+        odpup_result.innerText = temp
+        odpup_value.innerText = str_res_odpup
     }
     else {
         odpup_area.hidden = true
@@ -87,7 +91,7 @@ function calc() {
 
 function copyFromId(id) {
     const el = document.getElementById(id);
-    let value = (el.innerText).replace('.',',');
+    let value = (el.innerText).replace('.', ',');
 
     copyToClipboard(value);
 }
