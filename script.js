@@ -27,23 +27,27 @@ function clean() {
 }
 
 function calc() {
-    let sum = Number(otop.value) + Number(gvs.value) + Number(odpuo.value) + Number(odpup.value)
+    debugger;
+    let otopValue = otop.value.replace(',', '.')
+    let gvsValue = gvs.value.replace(',', '.')
+    let odpuoValue = odpuo.value.replace(',', '.')
+    let odpupValue = odpup.value.replace(',', '.')
+    let oplValue = opl.value.replace(',', '.')
 
-    let str_res_otop = (opl.value * (otop.value / sum)).toFixed(2)
-    let str_res_gvs = (opl.value * (gvs.value / sum)).toFixed(2)
-    let str_res_odpuo = (opl.value * (odpuo.value / sum)).toFixed(2)
-    let str_res_odpup = (opl.value * (odpup.value / sum)).toFixed(2)
+    let sum = Number(otopValue) + Number(gvsValue) + Number(odpuoValue) + Number(odpupValue)
+
+    let str_res_otop = (oplValue * (otopValue / sum)).toFixed(2)
+    let str_res_gvs = (oplValue * (gvsValue / sum)).toFixed(2)
+    let str_res_odpuo = (oplValue * (odpuoValue / sum)).toFixed(2)
+    let str_res_odpup = (oplValue * (odpupValue / sum)).toFixed(2)
 
     let result_sum = Number(str_res_otop) + Number(str_res_gvs) + Number(str_res_odpuo) + Number(str_res_odpup)
 
 
-    // let delta = (opl.value - result_sum).toFixed(2)
 
-    // alert('Погрешность: ' + delta);    
 
-    
     results.hidden = false
- 
+
     if (Number(str_res_otop > 0)) {
 
         otop_area.hidden = false
@@ -54,7 +58,7 @@ function calc() {
     else {
         otop_area.hidden = true
     }
- 
+
     if (Number(str_res_gvs > 0)) {
 
         gvs_area.hidden = false
