@@ -27,12 +27,13 @@ function clean() {
 }
 
 function calc() {
-    debugger;
-    let otopValue = otop.value.replace(',', '.')
-    let gvsValue = gvs.value.replace(',', '.')
-    let odpuoValue = odpuo.value.replace(',', '.')
-    let odpupValue = odpup.value.replace(',', '.')
-    let oplValue = opl.value.replace(',', '.')
+    const spaces = new RegExp('\\s', 'g')
+
+    let otopValue = otop.value.replace(spaces, '').replace(',', '.')
+    let gvsValue = gvs.value.replace(spaces, '').replace(',', '.')
+    let odpuoValue = odpuo.value.replace(spaces, '').replace(',', '.')
+    let odpupValue = odpup.value.replace(spaces, '').replace(',', '.')
+    let oplValue = opl.value.replace(spaces, '').replace(',', '.')
 
     let sum = Number(otopValue) + Number(gvsValue) + Number(odpuoValue) + Number(odpupValue)
 
