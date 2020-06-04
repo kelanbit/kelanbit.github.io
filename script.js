@@ -44,6 +44,9 @@ function calc() {
         
         aalert.hidden=false
     }
+    else{
+        aalert.hidden=true
+    }
 
     let str_res_otop = (oplValue * (otopValue / sum)).toFixed(2)
     let str_res_gvs = (oplValue * (gvsValue / sum)).toFixed(2)
