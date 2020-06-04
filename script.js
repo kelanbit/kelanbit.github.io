@@ -20,10 +20,12 @@ const odpuo_value = document.getElementById('odpuo_value')
 const odpup_value = document.getElementById('odpup_value')
 
 const results = document.getElementById('results')
+const aalert = document.getElementById('aalert')
 
 
 function clean() {
-    results.hidden = true
+    aalert.hidden=true
+    results.hidden = true    
 }
 
 function calc() {
@@ -36,6 +38,12 @@ function calc() {
     let oplValue = opl.value.replace(spaces, '').replace(',', '.')
 
     let sum = Number(otopValue) + Number(gvsValue) + Number(odpuoValue) + Number(odpupValue)
+
+    if (oplValue > sum) {
+        oplValue = sum
+        
+        aalert.hidden=false
+    }
 
     let str_res_otop = (oplValue * (otopValue / sum)).toFixed(2)
     let str_res_gvs = (oplValue * (gvsValue / sum)).toFixed(2)
