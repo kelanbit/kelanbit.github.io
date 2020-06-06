@@ -1,0 +1,7 @@
+#results .alert{
+    transition: 0.3s;
+}
+
+#results .alert:hover{
+    background-color: rgb(177, 177, 177);    
+}

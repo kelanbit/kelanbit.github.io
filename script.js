@@ -5,12 +5,12 @@ const odpup = document.getElementById('odpup')
 const opl = document.getElementById('opl')
 
 
-const results = document.getElementById('results')
+const renderBody = document.getElementById('renderBody')
 
 
 function clean() {
-    while (results.firstChild) {
-        results.removeChild(results.firstChild)
+    while (renderBody.firstChild) {
+        renderBody.removeChild(renderBody.firstChild)
     }
 }
 
@@ -33,7 +33,7 @@ function calc() {
         let alert = document.createElement('div')
         alert.className = 'alert alert-warning'
         alert.innerHTML = '<strong>Внимание!</strong> Сумма поступившей оплаты больше суммы общей задолженности и автоматически снижена до размера ДЗ.'
-        results.appendChild(alert)
+        renderBody.appendChild(alert)
     }
 
     let services = []
@@ -58,11 +58,12 @@ function draw(array) {
     for (let index = 0; index < array.length; index++) {
         if (array[index].value > 0) {
             let hr = document.createElement('hr')
-            results.appendChild(hr)
+            renderBody.appendChild(hr)
 
             let row = document.createElement('div')
             row.className = 'row'
-            results.appendChild(row)
+            row.id = 'results'
+            renderBody.appendChild(row)
 
             for (let index = 0; index < array.length; index++) {
                 let service = array[index];
@@ -92,10 +93,11 @@ function draw(array) {
                     card.appendChild(value)
 
                     let btn = document.createElement('button')
-                    btn.className = 'btn btn-secondary'
+                    btn.className = 'btn btn-secondary btn-block'
                     btn.innerText = 'Скопировать значение'
                     btn.onclick = function () {
                         copyFromId(value.id)
+                        changeBtnText(btn, 'Скопировать значение', 'Скопировано!', 5000)
                     }
                     card.appendChild(btn)
 
@@ -105,4 +107,11 @@ function draw(array) {
             break;
         }
     }
+}
+
+function changeBtnText(button, before, after, timeout) {
+    button.innerText = after
+    setTimeout(function (x) {
+        button.innerText = before
+    }, timeout)
 }
