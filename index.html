@@ -16,7 +16,6 @@
 
             <div class="alert alert-dark">
 
-
                 <div class="row">
                     <div class="col-md">
                         <label class="font-weight-bold mb-1 p-0" for="otop">Отопление</label>
@@ -90,60 +89,12 @@
             </div>
         </form>
 
-        <div id="results" hidden>
-
-            <hr>
-
-            <div id="aalert" class="alert alert-warning" hidden>
-                <strong>Внимание!</strong> Сумма поступившей оплаты больше суммы общей задолженности и автоматически
-                снижена до размера ДЗ.
-            </div>
-
-            <div class="row">
-                <div class="col-lg" id="otop_area" hidden>
-                    <div class="alert alert-dark">
-                        <h5 class="alert-heading">Отопление</h5>
-                        <p id="otop_result"></p>
-                        <p id="otop_value" hidden></p>
-                        <button class="btn btn-secondary" onclick="copyFromId('otop_value')">Скопировать
-                            значение</button>
-                    </div>
-                </div>
-
-                <div class="col-lg" id="gvs_area" hidden>
-                    <div class="alert alert-dark">
-                        <h5 class="alert-heading">ГВС</h5>
-                        <p id="gvs_result"></p>
-                        <p id="gvs_value" hidden></p>
-                        <button class="btn btn-secondary" onclick="copyFromId('gvs_value')">Скопировать
-                            значение</button>
-                    </div>
-                </div>
-
-                <div class="col-lg" id="odpuo_area" hidden>
-                    <div class="alert alert-dark">
-                        <h5 class="alert-heading">ОДПУ осн</h5>
-                        <p id="odpuo_result"></p>
-                        <p id="odpuo_value" hidden></p>
-                        <button class="btn btn-secondary" onclick="copyFromId('odpuo_value')">Скопировать
-                            значение</button>
-                    </div>
-                </div>
-
-                <div class="col-lg" id="odpup_area" hidden>
-                    <div class="alert alert-dark">
-                        <h5 class="alert-heading">ОДПУ %</h5>
-                        <p id="odpup_result"></p>
-                        <p id="odpup_value" hidden></p>
-                        <button class="btn btn-secondary" onclick="copyFromId('odpup_value')">Скопировать
-                            значение</button>
-                    </div>
-                </div>
-
-            </div>
+        <div id="results">
         </div>
     </div>
 
+    <script src="Service.js"></script>
+    <script src="clipboard.js"></script>
     <script src="script.js"></script>
 
 </body>
