@@ -31,8 +31,9 @@ function calc() {
         oplValue = sum
 
         let alert = document.createElement('div')
-        alert.className = 'alert alert-warning'
+        alert.className = 'alert'
         alert.innerHTML = '<strong>Внимание!</strong> Сумма поступившей оплаты больше суммы общей задолженности и автоматически снижена до размера ДЗ.'
+        alert.id='alert'
         renderBody.appendChild(alert)
     }
 
@@ -74,7 +75,7 @@ function draw(array) {
                     row.appendChild(col)
 
                     let card = document.createElement('div')
-                    card.className = 'alert alert-dark'
+                    card.className = 'alert'
                     col.appendChild(card)
 
                     let header = document.createElement('h5')
@@ -93,7 +94,7 @@ function draw(array) {
                     card.appendChild(value)
 
                     let btn = document.createElement('button')
-                    btn.className = 'btn btn-secondary btn-block'
+                    btn.className = 'btn btn-block'
                     btn.innerText = 'Скопировать значение'
                     btn.onclick = function () {
                         copyFromId(value.id)

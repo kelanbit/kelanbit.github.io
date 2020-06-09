@@ -15,7 +15,7 @@
         <h1 class="display-4 my-4">Калькулятор оплат</h1>
 
         <form onsubmit="calc();return false" onreset="window.location.reload()">
-            <div class="alert alert-dark">
+            <div id="form" class="alert">              
 
                 <div class="row">
                     <div class="col-md">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>         
 
                 <div>
                     <label class="font-weight-bold mb-1 p-0" for="opl">Оплата</label>
@@ -85,8 +85,8 @@
 
 
             <div class="d-flex">
-                <input type="submit" class="btn btn-success btn-lg" name="apply" value="Рассчитать" />
-                <input type="reset" class="btn btn-danger btn-lg ml-auto" name="cancel" value="Очистить"></button>
+                <input type="submit" id="btn1" class="btn btn-lg" name="apply" value="Рассчитать" />
+                <input type="reset" id="btn2" class="btn btn-lg ml-auto" name="cancel" value="Очистить"></button>
             </div>
         </form>
 

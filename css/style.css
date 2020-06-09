@@ -1,7 +1,53 @@
-#results .alert{
-    transition: 0.3s;
+body{
+    background-color: #f2f5f8;
 }
 
-#results .alert:hover{
-    background-color: rgb(177, 177, 177);    
+/* форма ввода */
+
+#form{
+    background-color: white;
+    border-color: #d9e1e9;
+}
+
+#btn1{
+    background-color: #f05b25;
+    color: white;
+    transition: 0.2s;
+}
+
+#btn2{
+    background-color: #565656;
+    color: white;
+    transition: 0.2s;
+}
+
+#btn1:hover, #btn2:hover{
+    filter: brightness(120%);    
+}
+
+/* результаты */
+
+#alert{
+    background-color: #fff3ee;
+    color: #f05b25;    
+}
+
+#results .alert{
+    background-color:white;
+    transition: 0.2s;
+}
+
+#results .alert:hover{   
+    border-color: #565656;
+    border-color: #d9e1e9;
+}
+
+#results button{    
+    background-color: #565656;
+    color: white;
+    transition: 0.2s;
+}
+
+#results button:hover{
+    background-color: #f05b25;
 }
