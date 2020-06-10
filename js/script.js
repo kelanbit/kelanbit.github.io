@@ -27,7 +27,7 @@ function calc() {
 
     let sum = Number(otopValue) + Number(gvsValue) + Number(odpuoValue) + Number(odpupValue)
 
-    if (oplValue > sum) {
+    if (oplValue > sum && sum > 0) {
         oplValue = sum
 
         let alert = document.createElement('div')
