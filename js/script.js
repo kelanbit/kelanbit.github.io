@@ -3,10 +3,13 @@ const gvs = document.getElementById('gvs')
 const odpuo = document.getElementById('odpuo')
 const odpup = document.getElementById('odpup')
 const opl = document.getElementById('opl')
+const swt = document.getElementById('flexSwitchCheckDefault')
 
 
 const renderBody = document.getElementById('renderBody')
 
+
+initTheme()
 
 function clean() {
     while (renderBody.firstChild) {
@@ -93,8 +96,8 @@ function draw(array) {
                     value.id = service.alias + 'Value'
                     card.appendChild(value)
 
-                    let btn = document.createElement('button')
-                    btn.className = 'btn btn-block'
+                    let btn = document.createElement('button')                  
+                    btn.className = 'btn w-100'
                     btn.innerText = 'Скопировать значение'
                     btn.onclick = function () {
                         copyFromId(value.id)
@@ -115,4 +118,30 @@ function changeBtnText(button, before, after, timeout) {
     setTimeout(function (x) {
         button.innerText = before
     }, timeout)
+}
+
+function initTheme() {
+    var value = localStorage.getItem('paymentCaclTheme'); 
+    
+    value == 'dark'
+        ? localStorage.setItem('paymentCaclTheme', 'dark')
+        : localStorage.setItem('paymentCaclTheme', 'light')
+
+    if (value == 'dark')         
+        swt.checked = true
+
+    value == 'dark'
+        ? document.getElementById('cssLink').setAttribute('href', 'css/dark.css')
+        : document.getElementById('cssLink').setAttribute('href', 'css/light.css')    
+}
+
+function changeCss() {
+    if (localStorage.getItem('paymentCaclTheme') == 'dark') {
+        document.getElementById('cssLink').setAttribute('href', 'css/light.css')
+        localStorage.setItem('paymentCaclTheme', 'light')        
+    }
+    else {
+        document.getElementById('cssLink').setAttribute('href', 'css/dark.css')
+        localStorage.setItem('paymentCaclTheme', 'dark')
+    }    
 }

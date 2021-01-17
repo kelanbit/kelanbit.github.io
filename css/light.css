@@ -1,11 +1,13 @@
-body{
-    background-color: #f2f5f8;
+body{    
+    background-color: #e5e5e5;
     font-family: 'Roboto', sans-serif;
+    transition: 0.5s;
 }
 
 #form{
     background-color: white;
     border-color: #d9e1e9;
+    transition: 0.2s;
 }
 
 #btn1{
@@ -15,7 +17,7 @@ body{
 }
 
 #btn2{   
-    background-color: #657480;
+    background-color: #657480;    
     color: white;
     transition: 0.2s;
 }
@@ -37,8 +39,7 @@ body{
 }
 
 #results .alert:hover{   
-    border-color: #657480;
-    border-color: #d9e1e9;
+    border-color: #d9e1e9;    
 }
 
 #results button{    
