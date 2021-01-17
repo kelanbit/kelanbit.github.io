@@ -14,14 +14,14 @@ body{
     transition: 0.2s;
 }
 
-#btn2{
-    background-color: #565656;
+#btn2{   
+    background-color: #657480;
     color: white;
     transition: 0.2s;
 }
 
 #btn1:hover, #btn2:hover{
-    filter: brightness(120%);    
+    filter: brightness(115%);    
 }
 
 /* результаты */
@@ -37,12 +37,12 @@ body{
 }
 
 #results .alert:hover{   
-    border-color: #565656;
+    border-color: #657480;
     border-color: #d9e1e9;
 }
 
 #results button{    
-    background-color: #565656;
+    background-color: #657480;
     color: white;
     transition: 0.2s;
 }

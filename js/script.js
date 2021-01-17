@@ -98,7 +98,7 @@ function draw(array) {
                     btn.innerText = 'Скопировать значение'
                     btn.onclick = function () {
                         copyFromId(value.id)
-                        changeBtnText(btn, 'Скопировать значение', 'Скопировано!', 5000)
+                        changeBtnText(btn, 'Скопировать значение', 'Скопировано!', 3500)
                     }
                     card.appendChild(btn)
 
