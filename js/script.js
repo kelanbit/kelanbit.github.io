@@ -4,6 +4,7 @@ const odpuo = document.getElementById('odpuo')
 const odpup = document.getElementById('odpup')
 const opl = document.getElementById('opl')
 const swt = document.getElementById('flexSwitchCheckDefault')
+const swtLabel = document.getElementById('flexSwitchLabel')
 
 
 const renderBody = document.getElementById('renderBody')
@@ -121,14 +122,12 @@ function changeBtnText(button, before, after, timeout) {
 }
 
 function initTheme() {
-    var value = localStorage.getItem('paymentCaclTheme'); 
-    
-    value == 'dark'
-        ? localStorage.setItem('paymentCaclTheme', 'dark')
-        : localStorage.setItem('paymentCaclTheme', 'light')
+    var value = localStorage.getItem('paymentCaclTheme')
 
-    if (value == 'dark')         
+    if (value == 'dark') {         
         swt.checked = true
+        swtLabel.innerText = 'Ночь'
+    }
 
     value == 'dark'
         ? document.getElementById('cssLink').setAttribute('href', 'css/dark.css')
@@ -138,10 +137,12 @@ function initTheme() {
 function changeCss() {
     if (localStorage.getItem('paymentCaclTheme') == 'dark') {
         document.getElementById('cssLink').setAttribute('href', 'css/light.css')
-        localStorage.setItem('paymentCaclTheme', 'light')        
+        localStorage.setItem('paymentCaclTheme', 'light') 
+        swtLabel.innerText = 'День'       
     }
     else {
         document.getElementById('cssLink').setAttribute('href', 'css/dark.css')
         localStorage.setItem('paymentCaclTheme', 'dark')
+        swtLabel.innerText = 'Ночь'
     }    
 }
