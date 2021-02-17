@@ -44,16 +44,16 @@ function calc() {
     let services = []
 
     let str_res_otop = (oplValue * (otopValue / sum)).toFixed(2)
-    services.push(Service('Отопление', 'otop', str_res_otop))
+    services.push(new Service('Отопление', 'otop', str_res_otop))
 
     let str_res_gvs = (oplValue * (gvsValue / sum)).toFixed(2)
-    services.push(Service('ГВС', 'gvs', str_res_gvs))
+    services.push(new Service('ГВС', 'gvs', str_res_gvs))
 
     let str_res_odpuo = (oplValue * (odpuoValue / sum)).toFixed(2)
-    services.push(Service('ОДПУ осн', 'odpuo', str_res_odpuo))
+    services.push(new Service('ОДПУ осн', 'odpuo', str_res_odpuo))
 
     let str_res_odpup = (oplValue * (odpupValue / sum)).toFixed(2)
-    services.push(Service('ОДПУ %', 'odpup', str_res_odpup))
+    services.push(new Service('ОДПУ %', 'odpup', str_res_odpup))
 
 
     draw(services)
